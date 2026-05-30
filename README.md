@@ -1,3 +1,4 @@
 # CSE-17
-HITM and CSS Project
+HTML and CSS Project
 Author - Dhruv Sharma
+Section - CSE 13
