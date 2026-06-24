@@ -1,80 +1,87 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Basic E-Commerce Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickCart</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <h1>Welcome to Alien's Shop!</h1>
-    <p>Your one-stop place for all your editing stuff.</p>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <!-- Logo / Brand -->
+    <div class="nav-logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">Quick<span class="logo-accent">Cart</span></span>
+    </div>
 
-    <nav>
-        <h2>MyShop</h2>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Cart</a></li>
-            <li><a href="https://example.com" target="_blank">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Search Bar -->
+    <div class="nav-search">
+      <span class="search-icon">🔍</span>
+      <!-- Event: 'input' triggers real-time product filtering -->
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search products…"
+        autocomplete="off"
+      />
+    </div>
 
-    <section>
-        <h2>Products</h2>
+    <!-- Cart Toggle Button with Badge Counter -->
+    <button class="cart-toggle-btn" id="cartToggleBtn" aria-label="Open cart">
+      <span class="cart-icon">🛒</span>
+      <!-- DOM: cartCount span is updated dynamically -->
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </nav>
 
-        <div>
-            <img src="download (1).jpg" alt="Twixtor Pack">
-            <h3>Twixtor Pack</h3>
-            <p>Price: ₹499</p>
-            <a href="#">Buy Now</a>
+  <!-- ===== MAIN LAYOUT ===== -->
+  <div class="layout">
+
+    <!-- ===== PRODUCT SECTION ===== -->
+    <main class="products-section">
+      <div class="section-header">
+        <h2 class="section-title">All Products</h2>
+        <!-- DOM: resultInfo is updated when searching -->
+        <p class="result-info" id="resultInfo"></p>
+      </div>
+      <!-- DOM: productGrid is populated by renderProducts() in script.js -->
+      <div class="product-grid" id="productGrid"></div>
+    </main>
+
+    <!-- ===== CART SIDEBAR ===== -->
+    <aside class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h2 class="cart-title">Your Cart</h2>
+        <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">✕</button>
+      </div>
+
+      <!-- DOM: cartItems div is populated by renderCart() -->
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+          <span class="empty-icon">🛍️</span>
+          <p>Your cart is empty.</p>
+          <small>Add some products to get started!</small>
         </div>
+      </div>
 
-        <div>
-            <img src="download (2).jpg" alt="HD Quality Color Corrections">
-            <h3>HD Quality Color Corrections</h3>
-            <p>Price: ₹799</p>
-            <a href="#">Buy Now</a>
+      <!-- Cart Footer: totals + checkout -->
+      <div class="cart-footer" id="cartFooter">
+        <div class="cart-total-row">
+          <span>Subtotal</span>
+          <!-- DOM: cartTotal is updated on every cart change -->
+          <span id="cartTotal">₹0</span>
         </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </aside>
 
-        <div>
-            <img src="download (3).jpg" alt="Complete Editing Bundle">
-            <h3>Complete Editing Bundle</h3>
-            <p>Price: ₹1299</p>
-            <a href="#">Buy Now</a>
-        </div>
+  </div><!-- /layout -->
 
-        <div>
-            <img src="download (4).jpg" alt="Cinematic LUT Pack">
-            <h3>Cinematic LUT Pack</h3>
-            <p>Price: ₹599</p>
-            <a href="#">Buy Now</a>
-        </div>
+  <!-- Cart overlay (mobile) -->
+  <div class="cart-overlay" id="cartOverlay"></div>
 
-        <div>
-            <img src="download (5).jpg" alt="Motion Graphics Pack">
-            <h3>Motion Graphics Pack</h3>
-            <p>Price: ₹999</p>
-            <a href="#">Buy Now</a>
-        </div>
-
-        <div>
-            <img src="download (6).jpg" alt="YouTube Thumbnail Bundle">
-            <h3>YouTube Thumbnail Bundle</h3>
-            <p>Price: ₹699</p>
-            <a href="#">Buy Now</a>
-        </div>
-
-    </section>
-
-    <footer>
-        <p>~Alien SyncX (YT)</p>
-        <p>Email: aliensyncx@gmail.com</p>
-    </footer>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
